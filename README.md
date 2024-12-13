@@ -2,14 +2,14 @@
 
 ### Summary
 
-- Feaures
-  - [ ] Created from UI Design  + Logo 
-  - [ ] Clean Architecture + MVVM
-  - [ ] Responsive Login Screen
-  - [ ] Data Persistence Room database
-  - [ ] Carousel
-  - [ ] Lottie Animation
-  - [ ] Retrieve user from room (Todo)
+- Features
+  - [x] Created from UI Design  + Logo 
+  - [x] Clean Architecture + MVVM
+  - [x] Responsive Login Screen
+  - [x] Once logged in redirect to another screen with Welcome!
+  - [x] Data Persistence Room database
+  - [x] Carousel
+  - [x] Lottie Animation
 
 ### UI Changes
 | **Inspiration**                                                    | **Output**                                                       |
@@ -22,6 +22,6 @@
 ### Future Features
 ---
 
-- [ ] Retrieve user from room (Todo)
+- [ ] Retrieve user from Room Database (Todo)
 - [ ] Real API data list 
 - [ ] Click functions
