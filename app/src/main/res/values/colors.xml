@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Login Screen Color-->
+    <color name="login_bg_color">#ffffff</color>
+    <color name="light_grey_color">#ACACAC</color>
+    <color name="light_grey_color_40">#1FFFFFFF</color>
+    <color name="colorPrimary">#FF7C00</color>
+    <color name="colorFacebook">#247bf4</color>
+
+    <color name="colorMain">#3632d5</color>
+
+</resources>
