@@ -8,6 +8,7 @@ import com.example.androidmvvmlogin.data.local.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -25,11 +26,10 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideLocalUserDatabase(context: Context): LocalUserDatabase {
+    fun provideLocalUserDatabase(@ApplicationContext context: Context): LocalUserDatabase {
         return Room.databaseBuilder(
             context,
-            LocalUserDatabase::class.java,
-            "user_db"
+            LocalUserDatabase::class.java, "user_db"
         ).build()
     }
 
