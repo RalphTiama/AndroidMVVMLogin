@@ -1,4 +1,4 @@
-package com.example.androidmvvmlogin.domain
+package com.example.androidmvvmlogin.di
 
 import android.app.Application
 import android.content.Context
