@@ -14,5 +14,8 @@ class LoginUseCase @Inject constructor(
         return loginRepository.login(username, password)
     }
 
+    suspend fun getLoggedInUser(): LoggedInUser?{
+        return loginRepository.getLoggedInUser()
+    }
 
 }

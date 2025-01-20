@@ -3,6 +3,7 @@ package com.example.androidmvvmlogin.data
 import com.example.androidmvvmlogin.data.model.LoggedInUser
 import com.example.androidmvvmlogin.data.remote.LoginDataSource
 import com.example.androidmvvmlogin.domain.repository.LoginRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
@@ -14,9 +15,9 @@ class LoginRepositoryImpl @Inject constructor(private val dataSource: LoginDataS
         get() = user != null
 
 
-    suspend fun logout() {
+    override suspend fun logout(): Result<Unit> {
         user = null
-        dataSource.logout()
+        return dataSource.logout()
     }
 
 
@@ -30,6 +31,9 @@ class LoginRepositoryImpl @Inject constructor(private val dataSource: LoginDataS
         return result
     }
 
+    override suspend fun getLoggedInUser(): LoggedInUser? {
+        return dataSource.getLoggedInUser()
+    }
 
 
 }

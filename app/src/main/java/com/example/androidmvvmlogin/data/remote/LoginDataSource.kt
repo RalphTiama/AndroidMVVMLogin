@@ -29,11 +29,16 @@ class LoginDataSource @Inject constructor(private val userDao: UserDao) {
         }
     }
 
-    suspend fun logout() {
-        userDao.logOutUser()
+    suspend fun logout(): Result<Unit> {
+        return try {
+            userDao.logOutUser()
+            Result.Success(Unit)
+        } catch (e: Exception) {
+            Result.Error(IOException("Error logging out", e))
+        }
     }
 
-    // TODO: I have limited time Fetch the logged-in user from Room database
+
     suspend fun getLoggedInUser(): LoggedInUser? {
         val userEntity = userDao.getLoggedInUser()
         return userEntity?.let {

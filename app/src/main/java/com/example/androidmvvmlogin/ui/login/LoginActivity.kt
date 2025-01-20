@@ -108,6 +108,14 @@ class LoginActivity : AppCompatActivity() {
             is LoginState.ShowProgressLoading -> {
                 binding.loading setVisible true
             }
+
+            LoginState.CheckingUserSession -> {
+               // binding.loading setVisible true
+            }
+
+            LoginState.LogoutResult -> {
+
+            }
         }
     }
 
@@ -124,6 +132,7 @@ class LoginActivity : AppCompatActivity() {
         if (state.success != null) {
             updateUiWithUser(state.success)
         }
+
         setResult(Activity.RESULT_OK)
 
         finish()

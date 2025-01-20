@@ -62,14 +62,14 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:background="@drawable/selector_stroke"
             android:elevation="10dp"
             android:paddingHorizontal="8dp"
-            android:text="Coming soon"
+            android:text="Logout Time"
             android:textColor="@color/white"
             android:textSize="16sp" />
 

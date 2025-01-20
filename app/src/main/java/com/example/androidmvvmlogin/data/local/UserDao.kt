@@ -3,6 +3,8 @@ package com.example.androidmvvmlogin.data.local
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.androidmvvmlogin.data.Result
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {

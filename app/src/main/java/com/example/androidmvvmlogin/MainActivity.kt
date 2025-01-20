@@ -1,18 +1,30 @@
 package com.example.androidmvvmlogin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.example.androidmvvmlogin.databinding.ActivityMainBinding
 import com.example.androidmvvmlogin.ui.carousel.HorizontalMarginItemDecoration
 import com.example.androidmvvmlogin.ui.carousel.ModelAdapter
 import com.example.androidmvvmlogin.ui.carousel.ModelCarousel
+import com.example.androidmvvmlogin.ui.login.LoginActivity
+import com.example.androidmvvmlogin.ui.login.LoginState
+import com.example.androidmvvmlogin.ui.login.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private val loginViewModel: LoginViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -29,6 +41,29 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        lifecycleScope.launch {
+            loginViewModel.state.collect{state ->
+                when(state) {
+
+                    LoginState.LogoutResult -> {
+                        finish()
+                        Intent(this@MainActivity, LoginActivity::class.java).also{
+                            startActivity(it)
+                        }
+                    }
+
+                    else -> {
+
+                    }
+                }
+
+            }
+        }
+
+        binding.txtLogout.setOnClickListener {
+            loginViewModel.logout()
         }
 
 

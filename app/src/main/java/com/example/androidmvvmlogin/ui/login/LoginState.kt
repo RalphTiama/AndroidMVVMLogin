@@ -15,5 +15,9 @@ sealed class LoginState {
 
     data object ShowProgressLoading : LoginState()
 
+    data object CheckingUserSession : LoginState()
+
+    data object LogoutResult : LoginState()
+
 
 }
